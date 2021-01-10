@@ -1,0 +1,27 @@
+
+#main {
+  text-align: center;
+  font-family: Arial;
+  letter-spacing: 10pt;
+  font-size: 50pt;
+  margin: 0;
+  -webkit-background-clip: text;
+  color: white;
+  margin-top: 50px;
+}
+
+#content {
+  color: white;
+  font-family: Arial;
+  font-size: 12pt;
+  margin: 40px;
+}
+
+#hlavni {
+  position: absolute;
+  background-color: rgba(90, 91, 92, 0.5);
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
+  height: 100%;
+}

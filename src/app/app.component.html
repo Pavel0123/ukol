@@ -1,0 +1,22 @@
+<nav class=" navbar-expand bg-dark navbar">
+
+  <button  class="btn btn-outline-light" (click)="vec()" id="toggle-sidebar">...</button>
+  <div id="sidebar" *ngIf="sidebar">
+
+    <button type="submit" class="btn btn-outline-light"><a routerLink="home">Home</a></button>
+    <button type="submit" class="btn btn-outline-light"><a routerLink="create">Create</a></button>
+    <button type="submit" class="btn btn-outline-light"><a routerLink="user">Users</a></button>
+
+  </div>
+
+
+  <div class="hledac">
+    <input placeholder="Text" [(ngModel)]="search" type="text"
+           class="searchbar">
+    <div>
+      <a  *ngFor="let link of links" routerLink="{{link}}">{{link}}</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+<div id="text" >
+  <div class="obecne">
+  <h1 >User - {{user.username}}</h1>
+  <label *ngIf="!edit">ID: {{user.id}}</label>
+    <p></p>
+  <label *ngIf="!edit">USERNAME: {{user.username}}</label>
+    <p></p>
+  <label *ngIf="!edit">PASSWORD: {{user.password}}</label>
+    <p></p>
+  <form>
+    <input *ngIf="edit" type="text" placeholder="current usrname: {{user.username}}" name="newUsername" value="{{user.username}}" [(ngModel)]="newUsername">
+    <p></p>
+    <input *ngIf="edit" type="text" placeholder="current pw: {{user.password}}" name="newPassword" value="{{user.password}}" [(ngModel)]="newPassword">
+  </form>
+  <button class="btn" name="edit" value="edit" *ngIf="user && !edit" (click)="showEdit()">EDIT</button>
+    <p></p>
+  <button class="btn" name="save" *ngIf="edit" (click)="editUser(user.id)">SAVE</button>
+</div>
+</div>
