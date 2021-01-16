@@ -1,10 +1,23 @@
 <div id="text" >
-<form class="obecne">
-  <p>Create user</p>
-  <input type="text" name="username" placeholder="username" [(ngModel)]="username">
+<form class="obecne" #form="ngForm">
+  <div [class.was-validated]="usernameEL.touched">
+    <p>Create user</p>
+    <input type="text" name="username" placeholder="username" [(ngModel)]="username" required minlength="4"required maxlength="10" #usernameEL="ngModel">
+    <p></p>
+  </div>
+  <input type="password" name="password" placeholder="password" [(ngModel)]="password" required minlength="4"required maxlength="10" #passwordEL="ngModel">
   <p></p>
-  <input type="password" name="password" placeholder="password" [(ngModel)]="password">
-  <p></p>
-  <input class="btn-form" type="submit" (click)="create()" name="submit" value="create" class="btn btn-outline-light">
+  <input class="btn-form" type="submit" (click)="create()" name="submit" value="create" class="btn btn-outline-light" [disabled]="form.invalid">
+  <div *ngIf="usernameEL.invalid && usernameEL.touched">
+    <span *ngIf="usernameEL.errors.required">Musite vyplnit username </span>
+    <span *ngIf="usernameEL.errors.minlength">Username je moc kratke</span>
+    <span *ngIf="usernameEL.errors.maxlength">Username je moc dlouhe</span>
+  </div>
+  <div *ngIf="passwordEL.invalid && passwordEL.touched">
+    <span *ngIf="passwordEL.errors.required">Musite vyplnit heslo </span>
+    <span *ngIf="passwordEL.errors.minlength">Heslo je moc kratke</span>
+    <span *ngIf="passwordEL.errors.maxlength">Heslo je moc dlouhe</span>
+  </div>
+
 </form>
 </div>
